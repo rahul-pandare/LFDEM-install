@@ -11,7 +11,7 @@ Compiling LF DEM
 
 1. Download the open source LF-DEM code from [lfdem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lfdem.zip) or use the following command in terminal
 ```bash
-$ git clone https://bitbucket.org/rmari/lf_dem.git
+$ git clone https://bitbucket.org/rmari/lf_dem.git'''
 
 
 2. Download SuiteSparse 5.4.0 from [suitesparse-5.4.0](https://people.engr.tamu.edu/davis/SuiteSparse/index.html)
