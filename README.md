@@ -112,11 +112,11 @@ While using the scp protocol mentioned above make sure to input the IP and key p
 
 4. Log into the cluster and unzip the `lfdem.zip` and `SuiteSparse.tar.gz` files.
 
-4. Go to: SuiteSparse/SuiteSparse_config and open SuiteSparse_config.mk - Edit this file. Update the CC and CXX compilers to gcc and g++ (respectively) instead of icc and icpc.
+5. Go to: SuiteSparse/SuiteSparse_config and open SuiteSparse_config.mk - Edit this file. Update the CC and CXX compilers to gcc and g++ (respectively) instead of icc and icpc.
 
-5. Install make, cmake, g++, gcc, openblas, and lapack (if not already installed). Look up the syntax online to install these packages if needed.
+6. Install make, cmake, g++, gcc, openblas, and lapack (if not already installed). Look up the syntax online to install these packages if needed.
 
-6. From the SuiteSparse folder terminal, run:
+7. From the SuiteSparse folder terminal, run:
     ```bash
     $ make config
     $ make
@@ -124,16 +124,16 @@ While using the scp protocol mentioned above make sure to input the IP and key p
     ```
    **NOTE:** After `make config`, check if the compilers and flags are properly linked. Make a folder named `opt` in the home directory.
 
-7. Open and edit the LF-DEM config file: go to LF DEM folder/LF_DEM/config, open Makefile_config_Rahul_linux.mk (update the name of the file as you wish). Update the following:
+8. Open and edit the LF-DEM config file: go to LF DEM folder/LF_DEM/config, open Makefile_config_Rahul_linux.mk (update the name of the file as you wish). Update the following:
    - `install_dir = path/to/opt` (directory created earlier)
    - Compilers must be g++ and gcc
    - `SUITESPARSE_ROOT = path/to/suitesparse/folder`
    - `CXXFLAGS_EXTRA = -DGIT_VERSION="\"42ce875e-dirty\""`
    If the config file is not available at the location, edit the generic config file.
 
-8. Update Makefile: go to LF DEM folder/LF_DEM and edit `Makefile`. Update the name of the config file to `makeconfig = config/Makefile_config_Rahul_linux.mk`. 
+9. Update Makefile: go to LF DEM folder/LF_DEM and edit `Makefile`. Update the name of the config file to `makeconfig = config/Makefile_config_Rahul_linux.mk`. 
 
-9. Open terminal from the LF_DEM folder. Run:
+10. Open terminal from the LF_DEM folder. Run:
     ```bash
     $ make
     $ make install
@@ -168,3 +168,5 @@ While using the scp protocol mentioned above make sure to input the IP and key p
 
 2. Issues while installing LF-DEM (step 9)
 - This step is usually straight forward and not prone to much error. While remaking do: '''$ make clean''' and the '''$ make''' again
+
+## C. Personal MacOS machine
