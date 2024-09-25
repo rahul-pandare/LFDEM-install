@@ -1,5 +1,5 @@
 # LFDEM-install
-> Instructions to install the Lubricated flow discrete element method (LF-DEM). <br>
+> <strong style="font-size: 20px;"> Instructions to install the Lubricated flow discrete element method (LF-DEM). <br>
 
 LF-DEM is a code written by Romain Mari and Ryohei Seto (Mari et al. 2024, https://doi.org/10.1122/1.4890747). <br>
 LF-DEM simulates dense, overdamped, neutrally boyant suspensions with spherical, bidisperse particles under simple shear. Rheological and interation information can be obtained from the LF-DEM code.<br>
