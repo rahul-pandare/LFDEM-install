@@ -82,7 +82,7 @@ Compiling LF DEM
 ## B. Linux Cluster
 1. Use of 'sshfs' on your personal machine is strongly recommended while working with clusters. It makes it easier to transfer small files accross from you machine to the cluster and vise versa with ease.
 For personal linux machines you can so:
-```bash
+    ```bash
     $ sudo apt update
     $ sudo apt install sshfs
     ```
@@ -99,7 +99,7 @@ For personal mac you need to download macFUSE: [https://osxfuse.github.io/](http
     $ wget https://people.engr.tamu.edu/davis/SuiteSparse/SuiteSparse-5.4.0.tar.gz
     ```
 4. Copy the `lfdem.zip` and `SuiteSparse.tar.gz` files on the cluster. If the `sshfs` is set up you simply copy paste, if not below is the syntacs to copy files on cluster from local machine directory:
-```bash
+    ```bash
     $ KEY_PATH="/Users/rahul/keys/aws.pem"
     $ IP="rahul10cunyhpc@3.134.253.90"
 
