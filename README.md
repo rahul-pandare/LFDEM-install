@@ -9,150 +9,72 @@ Compiling LF DEM
 
 ## A. Personal Linux Machine
 
-1. Download the open source LF-DEM code from [lfdem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lfdem.zip) or use the following command in terminal
-```bash
-$ git clone https://bitbucket.org/rmari/lf_dem.git'''
-
-
-2. Download SuiteSparse 5.4.0 from [suitesparse-5.4.0](https://people.engr.tamu.edu/davis/SuiteSparse/index.html)
-  (Note: do not use the latest version. Use the version mentionedcd above)
-  or use the following command in terminal
-```bash
-  wget https://people.engr.tamu.edu/davis/SuiteSparse/SuiteSparse-5.4.0.tar.gz
-
-3. Go to the download directory and unzip the '''lfdem.zip''' and '''SuiteSparse.tar.gz''' files.
-
-4. Go to: SuiteSparse/SuiteSparse_config and open SuiteSparse_config.mk - Edit this file.
-Update the CC and CXX compilers to gcc and g++ (respectively) instead of icc and icpc.
-
-5. Install make, cmake, g++, gcc, openblas and lapack (if not already installed). Look up the syntacs online to install these pacakages if need.
-
-6. From SuiteSparse folder terminal run: '''make config''', '''make''' and then '''make install'''
-NOTE: After make config check if the compilers and flags are properly linked
-Make a folder named '''opt''' in the home directory
-
-7. Open and edit the LF-DEM config file: go to LF DEM folder/LF_DEM/config open Makefile_config_Rahul_linux.mk (Update the name of the file as you wish).
-update the following:
-- install_dir = path/to/opt (directory created earlier)
-- Compilers must be g++ and gcc
-- SUITESPARSE_ROOT = path/to/suitesparse/folder
-- CXXFLAGS_EXTRA = -DGIT_VERSION="\"42ce875e-dirty\""
-If the config file is not available at the location, edit the generic config file.
-
-8. Update Makefile: go to LF DEM folder/LF_DEM and edit '''Makefile'''. Update the name of the config file '''makeconfig = config/Makefile_config_Rahul_linux.mk'''. 
-
-9. Open terminal from the LF_DEM folder. Run: '''make''' and '''make install'''.
-
-              LF DEM is ready
-
-Debugging:
-1. Issues while installing suitesparse (step 6)
-- After '''make config''' command check the output the CC and CXX compilers must be gcc (or cc) and g++ respectively. Check if openblas and lapack flags are linked.
-- '''make''' is prone to see more errors. While trying to remake the suitesparse library do: '''make clean''', '''make purge''' and then '''make'''.
-- After '''make''' command we usually see some error regarding no make targets found in some directories. That should be fine and we should still be able to install suitesparse.
-- While making suitesparse we might encounter errors in certain libraries or directories. You can cd into the specific directory and tackle that directory itself.
-- One of the more common errors can occur due to older versions or inexistance of gcc, g++, cmake, openblas or llapack. Make sure you have all of them.
-- While performing reinstallation of suitesparse incase '''make install'' spits out errors do: '''make uninstall''' and then '''make install'''.
-
-2. Issues while installing LF-DEM (step 9)
-- This step is usually straight forward and not prone to much error. While remaking do: '''make clean''' and the '''make''' again
-
-## A. Personal Linux Machine
-
-1. Download the open source LF-DEM code from [lfdem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lfdem.zip) or use the following command in terminal
-```bash
-$ git clone https://bitbucket.org/rmari/lf_dem.git
-
+1. Download the open source LF-DEM code from [lfdem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lfdem.zip) or use the following command in terminal:
+    ```bash
+    $ git clone https://bitbucket.org/rmari/lf_dem.git
+    ```
 
 2. Download SuiteSparse 5.4.0 from [suitesparse-5.4.0](https://people.engr.tamu.edu/davis/SuiteSparse/index.html)
-  (Note: do not use the latest version. Use the version mentionedcd above)
-  or use the following command in terminal
-```bash
-  wget https://people.engr.tamu.edu/davis/SuiteSparse/SuiteSparse-5.4.0.tar.gz
+   (Note: do not use the latest version. Use the version mentioned above) or use the following command in terminal:
+    ```bash
+    wget https://people.engr.tamu.edu/davis/SuiteSparse/SuiteSparse-5.4.0.tar.gz
+    ```
 
-3. Go to the download directory and unzip the '''lfdem.zip''' and '''SuiteSparse.tar.gz''' files.
+3. Go to the download directory and unzip the `lfdem.zip` and `SuiteSparse.tar.gz` files.
 
-4. Go to: SuiteSparse/SuiteSparse_config and open SuiteSparse_config.mk - Edit this file.
-Update the CC and CXX compilers to gcc and g++ (respectively) instead of icc and icpc.
+4. Go to: SuiteSparse/SuiteSparse_config and open SuiteSparse_config.mk - Edit this file. Update the CC and CXX compilers to gcc and g++ (respectively) instead of icc and icpc.
 
-5. Install make, cmake, g++, gcc, openblas and lapack (if not already installed). Look up the syntacs online to install these pacakages if need.
+5. Install make, cmake, g++, gcc, openblas, and lapack (if not already installed). Look up the syntax online to install these packages if needed.
 
-6. From SuiteSparse folder terminal run: '''make config''', '''make''' and then '''make install'''
-NOTE: After make config check if the compilers and flags are properly linked
-Make a folder named '''opt''' in the home directory
+6. From the SuiteSparse folder terminal, run:
+    ```bash
+    make config
+    make
+    make install
+    ```
+   **NOTE:** After `make config`, check if the compilers and flags are properly linked. Make a folder named `opt` in the home directory.
 
-7. Open and edit the LF-DEM config file: go to LF DEM folder/LF_DEM/config open Makefile_config_Rahul_linux.mk (Update the name of the file as you wish).
-update the following:
-- install_dir = path/to/opt (directory created earlier)
-- Compilers must be g++ and gcc
-- SUITESPARSE_ROOT = path/to/suitesparse/folder
-- CXXFLAGS_EXTRA = -DGIT_VERSION="\"42ce875e-dirty\""
-If the config file is not available at the location, edit the generic config file.
+7. Open and edit the LF-DEM config file: go to LF DEM folder/LF_DEM/config, open Makefile_config_Rahul_linux.mk (update the name of the file as you wish). Update the following:
+   - `install_dir = path/to/opt` (directory created earlier)
+   - Compilers must be g++ and gcc
+   - `SUITESPARSE_ROOT = path/to/suitesparse/folder`
+   - `CXXFLAGS_EXTRA = -DGIT_VERSION="\"42ce875e-dirty\""`
+   If the config file is not available at the location, edit the generic config file.
 
-8. Update Makefile: go to LF DEM folder/LF_DEM and edit '''Makefile'''. Update the name of the config file '''makeconfig = config/Makefile_config_Rahul_linux.mk'''. 
+8. Update Makefile: go to LF DEM folder/LF_DEM and edit `Makefile`. Update the name of the config file to `makeconfig = config/Makefile_config_Rahul_linux.mk`. 
 
-9. Open terminal from the LF_DEM folder. Run: '''make''' and '''make install'''.
+9. Open terminal from the LF_DEM folder. Run:
+    ```bash
+    make
+    make install
+    ```
+   **LF DEM is ready**
 
-              LF DEM is ready
+### Debugging:
 
-Debugging:
-1. Issues while installing suitesparse (step 6)
-- After '''make config''' command check the output the CC and CXX compilers must be gcc (or cc) and g++ respectively. Check if openblas and lapack flags are linked.
-- '''make''' is prone to see more errors. While trying to remake the suitesparse library do: '''make clean''', '''make purge''' and then '''make'''.
-- After '''make''' command we usually see some error regarding no make targets found in some directories. That should be fine and we should still be able to install suitesparse.
-- While making suitesparse we might encounter errors in certain libraries or directories. You can cd into the specific directory and tackle that directory itself.
-- One of the more common errors can occur due to older versions or inexistance of gcc, g++, cmake, openblas or llapack. Make sure you have all of them.
-- While performing reinstallation of suitesparse incase '''make install'' spits out errors do: '''make uninstall''' and then '''make install'''.
+1. **Issues while installing SuiteSparse (step 6)**
+   - After `make config` command, check the output. The CC and CXX compilers must be gcc (or cc) and g++ respectively. Check if openblas and lapack flags are linked.
+   - `make` is prone to see more errors. While trying to remake the SuiteSparse library, do:
+     ```bash
+     make clean
+     make purge
+     make
+     ```
+   - After the `make` command, we usually see some error regarding no make targets found in some directories. That should be fine, and we should still be able to install SuiteSparse.
+   - While making SuiteSparse, we might encounter errors in certain libraries or directories. You can `cd` into the specific directory and tackle that directory itself.
+   - One of the more common errors can occur due to older versions or the existence of gcc, g++, cmake, openblas, or lapack. Make sure you have all of them.
+   - While performing reinstallation of SuiteSparse, in case `make install` spits out errors, do:
+     ```bash
+     make uninstall
+     make install
+     ```
 
-2. Issues while installing LF-DEM (step 9)
-- This step is usually straight forward and not prone to much error. While remaking do: '''make clean''' and the '''make''' again
-
-## A. Personal Linux Machine
-
-1. Download the open source LF-DEM code from [lfdem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lfdem.zip) or use the following command in terminal
-```bash
-$ git clone https://bitbucket.org/rmari/lf_dem.git
-
-
-2. Download SuiteSparse 5.4.0 from [suitesparse-5.4.0](https://people.engr.tamu.edu/davis/SuiteSparse/index.html)
-  (Note: do not use the latest version. Use the version mentionedcd above)
-  or use the following command in terminal
-```bash
-  wget https://people.engr.tamu.edu/davis/SuiteSparse/SuiteSparse-5.4.0.tar.gz
-
-3. Go to the download directory and unzip the '''lfdem.zip''' and '''SuiteSparse.tar.gz''' files.
-
-4. Go to: SuiteSparse/SuiteSparse_config and open SuiteSparse_config.mk - Edit this file.
-Update the CC and CXX compilers to gcc and g++ (respectively) instead of icc and icpc.
-
-5. Install make, cmake, g++, gcc, openblas and lapack (if not already installed). Look up the syntacs online to install these pacakages if need.
-
-6. From SuiteSparse folder terminal run: '''make config''', '''make''' and then '''make install'''
-NOTE: After make config check if the compilers and flags are properly linked
-Make a folder named '''opt''' in the home directory
-
-7. Open and edit the LF-DEM config file: go to LF DEM folder/LF_DEM/config open Makefile_config_Rahul_linux.mk (Update the name of the file as you wish).
-update the following:
-- install_dir = path/to/opt (directory created earlier)
-- Compilers must be g++ and gcc
-- SUITESPARSE_ROOT = path/to/suitesparse/folder
-- CXXFLAGS_EXTRA = -DGIT_VERSION="\"42ce875e-dirty\""
-If the config file is not available at the location, edit the generic config file.
-
-8. Update Makefile: go to LF DEM folder/LF_DEM and edit '''Makefile'''. Update the name of the config file '''makeconfig = config/Makefile_config_Rahul_linux.mk'''. 
-
-9. Open terminal from the LF_DEM folder. Run: '''make''' and '''make install'''.
-
-              LF DEM is ready
-
-Debugging:
-1. Issues while installing suitesparse (step 6)
-- After '''make config''' command check the output the CC and CXX compilers must be gcc (or cc) and g++ respectively. Check if openblas and lapack flags are linked.
-- '''make''' is prone to see more errors. While trying to remake the suitesparse library do: '''make clean''', '''make purge''' and then '''make'''.
-- After '''make''' command we usually see some error regarding no make targets found in some directories. That should be fine and we should still be able to install suitesparse.
-- While making suitesparse we might encounter errors in certain libraries or directories. You can cd into the specific directory and tackle that directory itself.
-- One of the more common errors can occur due to older versions or inexistance of gcc, g++, cmake, openblas or llapack. Make sure you have all of them.
-- While performing reinstallation of suitesparse incase '''make install'' spits out errors do: '''make uninstall''' and then '''make install'''.
+2. **Issues while installing LF-DEM (step 9)**
+   - This step is usually straightforward and not prone to much error. While remaking, do:
+     ```bash
+     make clean
+     make
+     ```
 
 2. Issues while installing LF-DEM (step 9)
 - This step is usually straight forward and not prone to much error. While remaking do: '''make clean''' and the '''make''' again
