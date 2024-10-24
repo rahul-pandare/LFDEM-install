@@ -169,7 +169,7 @@ While using the scp protocol mentioned above make sure to input the IP and key p
 2. Issues while installing LF-DEM (step 9)
 - This step is usually straight forward and not prone to much error. While remaking do: '''$ make clean''' and the '''$ make''' again
 
-## C. Personal MacOS (M1) machine
+## C. Personal MacOS (M1 and M2) machine
 1. Download the open source LF-DEM code on your personal machine from [lfdem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lfdem.zip) or use the following command in terminal:
     ```bash
     $ git clone https://bitbucket.org/rmari/lf_dem.git
@@ -181,12 +181,13 @@ While using the scp protocol mentioned above make sure to input the IP and key p
    
 3. Make a folder named `opt` in the home directory.
    
-4. Open and edit the LF-DEM config file: go to LF DEM folder/LF_DEM/config, open Makefile_config_Rahul_m1.mk (update the name of the file as you wish). Update the following (if not already updated):
+4. Open and edit the LF-DEM config file: go to LF DEM folder/LF_DEM/config, open Makefile_config_Rahul_m1.mk or Makefile_config_Rahul_m2.mk (update the name of the file as you wish). Update the following (if not already updated):
    - `install_dir = path/to/opt` (directory created earlier)
    - Compilers must be g++ and gcc
    - `SUITESPARSE_ROOT = path/to/suitesparse/folder`
    - `CXXFLAGS_EXTRA = -DGIT_VERSION="\"42ce875e-dirty\""`
    If the config file is not available at the location, edit the generic config file.
+**Note**: Different flags are used for M1 and M2 makefiles.
 
 5. Update Makefile: go to LF DEM folder/LF_DEM and edit `Makefile`. Update the name of the config file to `makeconfig = config/Makefile_config_Rahul_m1.mk` (or the updated file name). 
 
