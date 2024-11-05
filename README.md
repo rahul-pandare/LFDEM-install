@@ -108,11 +108,11 @@ For personal mac you need to download macFUSE: [https://osxfuse.github.io/](http
 5. Go to: SuiteSparse/SuiteSparse_config and open SuiteSparse_config.mk - Edit this file. Update the CC and CXX compilers to gcc and g++ (respectively) instead of icc and icpc.
 
 6. In order to install Suitesparse and LF-DEM we require cmake, `g++`, `gcc`, `openblas` and `lapack`. We cannot install them on a cluster due to restrictions. We look for `gcc`, `cmake`, `intel` and `intel-mkl`. The `intel` modules have openblas and lapack inbuilt and it is optimized.
-    ``` bash
+    ```bash
     $ module load gcc cmake intel intel-mkl
     ```
 If case intel libraries are not present we look for `openblas` and `lapack`.
-    ``` bash
+    ```bash
     $ module load gcc cmake openblas lapack
     ```
 
@@ -226,9 +226,9 @@ Installation on AWS VM is similar as on personal linux machine.
     ```bash
     $ wget https://people.engr.tamu.edu/davis/SuiteSparse/SuiteSparse-5.4.0.tar.gz
     ```
-4. One could also upload the required files onto the AWS VM. Download the `[putFiles.sh](https://github.com/rahul-pandare/LFDEM-install/blob/main/putFiles.sh)` file. Run the putFile.sh to upload the required files on the AWS instance.
+4. One could also upload the required files onto the AWS VM. Download the [putFiles.sh](https://github.com/rahul-pandare/LFDEM-install/blob/main/putFiles.sh) file. Run the putFile.sh to upload the required files on the AWS instance.
 
-5. Download and run the `[LF_DEM_installation_aws.sh](https://github.com/rahul-pandare/LFDEM-install/blob/main/LF_DEM_installation_aws.sh)` file. This will install Suitesparse and LF-DEM onto the instance.
+5. Download and run the [LF_DEM_installation_aws.sh](https://github.com/rahul-pandare/LFDEM-install/blob/main/LF_DEM_installation_aws.sh) file. This will install Suitesparse and LF-DEM onto the instance.
 
 **LF DEM is ready**
    
@@ -243,14 +243,14 @@ Installation on AWS VM is similar as on personal linux machine.
    $ sudo chmod -R 755 .
    ```
    
-### Some additional points 
-1. **Clusters**
+### Some additional points
+1. **Cluster**
 - While my time working with LF-DEM so far I have used the [CUNY HPC](https://www.csi.cuny.edu/academics-and-research/research-centers/cuny-high-performance-computing-center), CCNY Excelsior Cluster, and via [ACCESS](https://access-ci.org/) I used [Darwin](https://docs.hpc.udel.edu/abstract/darwin/darwin) and [Anvil](https://www.rcac.purdue.edu/compute/anvil).
 - On most of the clusters installing Suitesparse is a challange due to cluster restrictions on installing libraries directly. One should try locating and adding the Lapack and openblas libraries to their environment. Using the intel and intel-mkl modules is ideal since they are faster.
 - Make sure you purge any other modules that may be present (even the sticky modules), so that they wont interfere with the necessary modules.
 - While installing LF-DEM, if one encounters compilation errors - try with different c compilers like `gcc & g++`, `icc & icpc` or `icx & icpx`
 
-1. **AWS instance**
+2. **AWS instance**
 - While using AWS - I used c7g, c7i, c5a, z1d. I found **c7i** to be the most efficient for the LF-DEM code.
 - To elaborate, c7g are the ARM gravitron chips. LF-DEM runs into error while compiling. c5a are the legacy older generation chips which are very slow. z1d are  fast but very expensive and the higher speed does not justify the cost hence not optimal.
 - After LF-DEM installation, while running jobs one can use the `screen` command from the terminal to make multiple ongoing terimal _screens_ and keep check on simulations.
