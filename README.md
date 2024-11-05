@@ -187,7 +187,7 @@ While using the scp protocol mentioned above make sure to input the IP and key p
    If the config file is not available at the location, edit the generic config file.
 **Note**: Different flags are used for M1 and M2 makefiles.
 
-5. Update Makefile: go to LF DEM folder/LF_DEM and edit `Makefile`. Update the name of the config file to `makeconfig = config/Makefile_config_Rahul_m1.mk` (or the updated file name). The reference config files are parked here for [M1] (https://github.com/rahul-pandare/LFDEM-install/blob/main/Makefile_config_Rahul_m1.mk) and [M2] (https://github.com/rahul-pandare/LFDEM-install/blob/main/Makefile_config_Rahul_m2.mk)
+5. Update Makefile: go to LF DEM folder/LF_DEM and edit `Makefile`. Update the name of the config file to `makeconfig = config/Makefile_config_Rahul_m1.mk` (or the updated file name). The reference config files are parked here for [M1](https://github.com/rahul-pandare/LFDEM-install/blob/main/Makefile_config_Rahul_m1.mk) and [M2](https://github.com/rahul-pandare/LFDEM-install/blob/main/Makefile_config_Rahul_m2.mk)
 
 6. Open terminal from the LF_DEM folder. Run:
     ```bash
