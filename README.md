@@ -211,3 +211,49 @@ While using the scp protocol mentioned above make sure to input the IP and key p
    - The config files alread mentioned have the necessary flags which copiled the code but which may not be the case for someone trying to install later with updated versions of libraries or different Apple processor.
 
 ## D. Using AWS (EC2 instance)
+Installation on AWS VM is similar as on personal linux machine.
+1. Make sure the AWS EC2 architecture uses ubuntu as OS and uses 64-bit x86 and not ARM. LF_DEM code compiles only on the x86 architecture.
+
+2. LF-DEM installation is similar to that as on a personal linux machine. Download the open source LF-DEM code from [lfdem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lfdem.zip) or use the following command in terminal:
+    ```bash
+    $ git clone https://bitbucket.org/rmari/lf_dem.git
+    ```
+
+3. Download SuiteSparse 5.4.0 from [suitesparse-5.4.0](https://people.engr.tamu.edu/davis/SuiteSparse/index.html)
+   (Note: do not use the latest version. Use the version mentioned above) or use the following command in terminal:
+    ```bash
+    $ wget https://people.engr.tamu.edu/davis/SuiteSparse/SuiteSparse-5.4.0.tar.gz
+    ```
+4. One could also upload the required files onto the AWS VM. Download the `[putFiles.sh](https://github.com/rahul-pandare/LFDEM-install/blob/main/putFiles.sh)` file. Run the putFile.sh to upload the required files on the AWS instance.
+
+5. Download and run the `[LF_DEM_installation_aws.sh](https://github.com/rahul-pandare/LFDEM-install/blob/main/LF_DEM_installation_aws.sh)` file. This will install Suitesparse and LF-DEM onto the instance.
+
+**LF DEM is ready**
+   
+### Debugging:
+
+1. **Issues while uploading file**
+   - You could upload the files manually or by using the `putFiles.sh` file. This file uses the scp command, make sure you have mentioned the correct IP and key paths. 
+
+2. **Issues while installing LF-DEM (step 9)**
+   - Often times the problem is with permisions. In case any error says `permission denied` or `cannot access directory` updated the permissions. Run the following command from home directory:
+   ```bash
+   $ sudo chmod -R 755 .
+   ```
+   
+### Some additional points 
+1. **Clusters**
+- While my time working with LF-DEM so far I have used the [CUNY HPC](https://www.csi.cuny.edu/academics-and-research/research-centers/cuny-high-performance-computing-center), CCNY Excelsior Cluster, and via [ACCESS](https://access-ci.org/) I used [Darwin](https://docs.hpc.udel.edu/abstract/darwin/darwin) and [Anvil](https://www.rcac.purdue.edu/compute/anvil).
+- On most of the clusters installing Suitesparse is a challange due to cluster restrictions on installing libraries directly. One should try locating and adding the Lapack and openblas libraries to their environment. Using the intel and intel-mkl modules is ideal since they are faster.
+- Make sure you purge any other modules that may be present (even the sticky modules), so that they wont interfere with the necessary modules.
+- While installing LF-DEM, if one encounters compilation errors - try with different c compilers like `gcc & g++`, `icc & icpc` or `icx & icpx`
+
+1. **AWS instance**
+- While using AWS - I used c7g, c7i, c5a, z1d. I found **c7i** to be the most efficient for the LF-DEM code.
+- To elaborate, c7g are the ARM gravitron chips. LF-DEM runs into error while compiling. c5a are the legacy older generation chips which are very slow. z1d are  fast but very expensive and the higher speed does not justify the cost hence not optimal.
+- After LF-DEM installation, while running jobs one can use the `screen` command from the terminal to make multiple ongoing terimal _screens_ and keep check on simulations.
+
+
+
+
+
