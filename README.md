@@ -245,15 +245,15 @@ Installation on AWS VM is similar as on personal linux machine.
    
 ### Some additional points
 1. **Cluster**
-- While my time working with LF-DEM so far I have used the [CUNY HPC](https://www.csi.cuny.edu/academics-and-research/research-centers/cuny-high-performance-computing-center), CCNY Excelsior Cluster, and via [ACCESS](https://access-ci.org/) I used [Darwin](https://docs.hpc.udel.edu/abstract/darwin/darwin) and [Anvil](https://www.rcac.purdue.edu/compute/anvil).
-- On most of the clusters installing Suitesparse is a challange due to cluster restrictions on installing libraries directly. One should try locating and adding the Lapack and openblas libraries to their environment. Using the intel and intel-mkl modules is ideal since they are faster.
-- Make sure you purge any other modules that may be present (even the sticky modules), so that they wont interfere with the necessary modules.
-- While installing LF-DEM, if one encounters compilation errors - try with different c compilers like `gcc & g++`, `icc & icpc` or `icx & icpx`
+    - While my time working with LF-DEM so far I have used the [CUNY HPC](https://www.csi.cuny.edu/academics-and-research/research-centers/cuny-high-performance-computing-center), CCNY Excelsior Cluster, and via [ACCESS](https://access-ci.org/) I used [Darwin](https://docs.hpc.udel.edu/abstract/darwin/darwin) and [Anvil](https://www.rcac.purdue.edu/compute/anvil).
+    - On most of the clusters installing Suitesparse is a challange due to cluster restrictions on installing libraries directly. One should try locating and adding the Lapack and openblas libraries to their environment. Using the intel and intel-mkl modules is ideal since they are faster.
+    - Make sure you purge any other modules that may be present (even the sticky modules), so that they wont interfere with the necessary modules.
+    - While installing LF-DEM, if one encounters compilation errors - try with different c compilers like `gcc & g++`, `icc & icpc` or `icx & icpx`
 
 2. **AWS instance**
-- While using AWS - I used c7g, c7i, c5a, z1d. I found **c7i** to be the most efficient for the LF-DEM code.
-- To elaborate, c7g are the ARM gravitron chips. LF-DEM runs into error while compiling. c5a are the legacy older generation chips which are very slow. z1d are  fast but very expensive and the higher speed does not justify the cost hence not optimal.
-- After LF-DEM installation, while running jobs one can use the `screen` command from the terminal to make multiple ongoing terimal _screens_ and keep check on simulations.
+    - While using AWS - I used c7g, c7i, c5a, z1d. I found **c7i** to be the most efficient for the LF-DEM code.
+    - To elaborate, c7g are the ARM gravitron chips. LF-DEM runs into error while compiling. c5a are the legacy older generation chips which are very slow. z1d are  fast but very expensive and the higher speed does not justify the cost hence not optimal.
+    - After LF-DEM installation, while running jobs one can use the `screen` command from the terminal to make multiple ongoing terimal _screens_ and keep check on simulations.
 
 
 
