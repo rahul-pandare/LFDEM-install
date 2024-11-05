@@ -126,7 +126,7 @@ While using the scp protocol mentioned above make sure to input the IP and key p
 
 8. Open and edit the LF-DEM config file: go to LF DEM folder/LF_DEM/config, open Makefile_config_Rahul_linux.mk (update the name of the file as you wish). Update the following:
    - `install_dir = path/to/opt` (directory created earlier)
-   - Compilers must be g++ and gcc
+   -  Compilers ideally should be g++ and gcc (icpx and icx could work too depending on the linked modules) 
    - `SUITESPARSE_ROOT = path/to/suitesparse/folder`
    - `CXXFLAGS_EXTRA = -DGIT_VERSION="\"42ce875e-dirty\""`
    If the config file is not available at the location, edit the generic config file.
@@ -166,18 +166,16 @@ While using the scp protocol mentioned above make sure to input the IP and key p
      $ make
      ```
 
-2. Issues while installing LF-DEM (step 9)
-- This step is usually straight forward and not prone to much error. While remaking do: '''$ make clean''' and the '''$ make''' again
-
 ## C. Personal MacOS (M1 and M2) machine
 1. Download the open source LF-DEM code on your personal machine from [lfdem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lfdem.zip) or use the following command in terminal:
     ```bash
     $ git clone https://bitbucket.org/rmari/lf_dem.git
     ```
-2. Install SuiteSparse:
+2. Install GCC, Clang and SuiteSparse:
    ```bash
-    $ brew install gcc suite-sparse
-    ```
+    $ brew install gcc llvm suite-sparse
+   ```
+   Here, GCC and Clang both are C compilers. We install both incase one fails.
    
 3. Make a folder named `opt` in the home directory.
    
@@ -189,7 +187,7 @@ While using the scp protocol mentioned above make sure to input the IP and key p
    If the config file is not available at the location, edit the generic config file.
 **Note**: Different flags are used for M1 and M2 makefiles.
 
-5. Update Makefile: go to LF DEM folder/LF_DEM and edit `Makefile`. Update the name of the config file to `makeconfig = config/Makefile_config_Rahul_m1.mk` (or the updated file name). 
+5. Update Makefile: go to LF DEM folder/LF_DEM and edit `Makefile`. Update the name of the config file to `makeconfig = config/Makefile_config_Rahul_m1.mk` (or the updated file name). The reference config files are parked here for [M1] (https://github.com/rahul-pandare/LFDEM-install/blob/main/Makefile_config_Rahul_m1.mk) and [M2] (https://github.com/rahul-pandare/LFDEM-install/blob/main/Makefile_config_Rahul_m2.mk)
 
 6. Open terminal from the LF_DEM folder. Run:
     ```bash
@@ -197,3 +195,19 @@ While using the scp protocol mentioned above make sure to input the IP and key p
     $ make install
     ```
    **LF DEM is ready**
+   
+### Debugging:
+
+1. **Issues while installing SuiteSparse (step 6)**
+   - Installing Suitesparse is usually straightforward. Incase any error arises due to suitesparse sublibrary try uninstalling and installing it again or installing a previous version of suitesparse by mentioning the version of the suitesparse while installing.
+     ```bash
+     $ brew install suite-sparse 7.8.2 # Older version
+     ```
+
+2. **Issues while installing LF-DEM (step 9)**
+   - This step is very prone to errors. Erros usually occur for C++ compilers, BLAS or LAPACK linking flags.
+   - In case of compiler error. Mention the path for g++ and gcc (clang and clang++)
+   - For other errors, looking up online forums for linking flags would be the best bet to make it work.
+   - The config files alread mentioned have the necessary flags which copiled the code but which may not be the case for someone trying to install later with updated versions of libraries or different Apple processor.
+
+## D. Using AWS (EC2 instance)
