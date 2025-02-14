@@ -189,7 +189,7 @@ If case intel libraries are not present we look for `openblas` and `lapack`.
    If the config file is not available at the location, edit the generic config file.
 **Note**: Different flags are used for M1 and M2 makefiles.
 
-5. Update Makefile: go to LF DEM folder/LF_DEM and edit `Makefile`. Update the name of the config file to `makeconfig = config/Makefile_config_Rahul_m1.mk` (or the updated file name).
+5. Update Makefile: go to LF DEM folder/LF_DEM and edit `Makefile`. under 'include paths' update the cholmod path and set it to `Cholmod_path = -I $(SUITESPARSE_ROOT)/include/` update the name of the config file to `makeconfig = config/Makefile_config_Rahul_m1.mk` (or the updated file name).
 
 6. Open terminal from the LF_DEM folder. Run:
     ```bash
