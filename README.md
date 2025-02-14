@@ -7,13 +7,19 @@ Here I mention the LF-DEM installation and bebugging steps for _personal linux, 
 
 Compiling LF DEM
 
-NOTE: The LF-DEM open source code is available at the author's [bitbucket] (https://bitbucket.org/rmari/lf_dem.git). You might need to request for access. Or I **RECOMMEND** pulling it from the current repository, since it has some custom maodification suitable for various operating systems and one algorithm change - the event handler identifies the shear jamming event if the shear rate drops below a threshhold (earlier it was the absolute shear rate)
+**Note:** The LF-DEM open-source code is available at the author's [Bitbucket repository](https://bitbucket.org/rmari/lf_dem.git). Access may require a request.  
+
+However, it is **recommended** to pull from the current repository, which includes:  
+- Custom modifications for compatibility across multiple operating systems.  
+- A key algorithmic update:  
+  - The event handler now identifies shear jamming events based on a **relative** shear rate threshold instead of an **absolute** shear rate threshold.  
+
 
 ## A. Personal Linux Machine
 
-1. Download the open source LF-DEM code from [lfdem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lfdem.zip) or use the following command in terminal:
+1. Download the LF-DEM code (`lf_dem` directory), by either retrieving the archive [lfdem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lfdem.zip) or cloning the repository:  
     ```bash
-    $ git clone https://bitbucket.org/rmari/lf_dem.git
+    $ git clone https://github.com/rahul-pandare/LFDEM-install.git
     ```
 
 2. Download SuiteSparse 5.4.0 from [suitesparse-5.4.0](https://people.engr.tamu.edu/davis/SuiteSparse/index.html)
@@ -93,9 +99,9 @@ For personal linux machines you can do:
     ```
 For personal mac you need to download macFUSE: [https://osxfuse.github.io/](https://osxfuse.github.io/)
 
-2. Download the open source LF-DEM code on your personal machine from [lfdem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lfdem.zip) or use the following command in terminal:
+2. Download the LF-DEM code (`lf_dem` directory) on your personal machine, by either retrieving the archive [lfdem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lfdem.zip) or cloning the repository:  
     ```bash
-    $ git clone https://bitbucket.org/rmari/lf_dem.git
+    $ git clone https://github.com/rahul-pandare/LFDEM-install.git
     ```
 
 3. Download SuiteSparse 5.4.0 from [suitesparse-5.4.0](https://people.engr.tamu.edu/davis/SuiteSparse/index.html)
@@ -105,11 +111,11 @@ For personal mac you need to download macFUSE: [https://osxfuse.github.io/](http
     ```
 4. Copy the `lfdem.zip` and `SuiteSparse.tar.gz` files on the cluster.
 
-4. Log into the cluster and unzip the `lfdem.zip` and `SuiteSparse.tar.gz` files.
+5. Log into the cluster and unzip the `lfdem.zip` and `SuiteSparse.tar.gz` files.
 
-5. Go to: SuiteSparse/SuiteSparse_config and open SuiteSparse_config.mk - Edit this file. Update the CC and CXX compilers to gcc and g++ (respectively) instead of icc and icpc.
+6. Go to: SuiteSparse/SuiteSparse_config and open SuiteSparse_config.mk - Edit this file. Update the CC and CXX compilers to gcc and g++ (respectively) instead of icc and icpc.
 
-6. In order to install Suitesparse and LF-DEM we require cmake, `g++`, `gcc`, `openblas` and `lapack`. We cannot install them on a cluster due to restrictions. We look for `gcc`, `cmake`, `intel` and `intel-mkl`. The `intel` modules have openblas and lapack inbuilt and it is optimized.
+7. In order to install Suitesparse and LF-DEM we require cmake, `g++`, `gcc`, `openblas` and `lapack`. We cannot install them on a cluster due to restrictions. We look for `gcc`, `cmake`, `intel` and `intel-mkl`. The `intel` modules have openblas and lapack inbuilt and it is optimized.
     ```bash
     $ module load gcc cmake intel intel-mkl
     ```
@@ -118,7 +124,7 @@ If case intel libraries are not present we look for `openblas` and `lapack`.
     $ module load gcc cmake openblas lapack
     ```
 
-7. From the SuiteSparse folder terminal, run:
+8. From the SuiteSparse folder terminal, run:
     ```bash
     $ make config
     $ make
@@ -126,18 +132,18 @@ If case intel libraries are not present we look for `openblas` and `lapack`.
     ```
    **NOTE:** After `make config`, check if the compilers and flags are properly linked.
 
-8. Make a folder named `opt` in the home directory.
+9. Make a folder named `opt` in the home directory.
 
-9. Open and edit the LF-DEM config file: go to LF DEM folder/LF_DEM/config, open Makefile_config_Rahul_linux.mk (update the name of the file as you wish). Update the following:
+10. Open and edit the LF-DEM config file: go to LF DEM folder/LF_DEM/config, open Makefile_config_Rahul_linux.mk (update the name of the file as you wish). Update the following:
    - `install_dir = path/to/opt` (directory created earlier)
    -  Compilers ideally should be g++ and gcc (icpx and icx could work too depending on the linked modules) 
    - `SUITESPARSE_ROOT = path/to/suitesparse/folder`
    - `CXXFLAGS_EXTRA = -DGIT_VERSION="\"42ce875e-dirty\""`
    If the config file is not available at the location, edit the generic config file.
 
-10. Update Makefile: go to LF DEM folder/LF_DEM and edit `Makefile`. Update the name of the config file to `makeconfig = config/Makefile_config_Rahul_linux.mk`. 
+11. Update Makefile: go to LF DEM folder/LF_DEM and edit `Makefile`. Update the name of the config file to `makeconfig = config/Makefile_config_Rahul_linux.mk`. 
 
-11. Open terminal from the LF_DEM folder. Run:
+12. Open terminal from the LF_DEM folder. Run:
     ```bash
     $ make
     $ make install
@@ -171,9 +177,9 @@ If case intel libraries are not present we look for `openblas` and `lapack`.
      ```
 
 ## C. Personal MacOS (M1 and M2) machine
-1. Download the open source LF-DEM code on your personal machine from [lfdem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lfdem.zip) or use the following command in terminal:
+1. Download the LF-DEM code (`lf_dem` directory) on your personal machine, by either retrieving the archive [lfdem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lfdem.zip) or cloning the repository:  
     ```bash
-    $ git clone https://bitbucket.org/rmari/lf_dem.git
+    $ git clone https://github.com/rahul-pandare/LFDEM-install.git
     ```
 2. Install GCC, Clang and SuiteSparse:
    ```bash
@@ -256,8 +262,3 @@ Installation on AWS VM is similar as on personal linux machine.
     - While using AWS - I used c7g, c7i, c5a, z1d. I found **c7i** to be the most efficient for the LF-DEM code.
     - To elaborate, c7g are the ARM gravitron chips. LF-DEM runs into error while compiling. c5a are the legacy older generation chips which are very slow. z1d are  fast but very expensive and the higher speed does not justify the cost hence not optimal.
     - After LF-DEM installation, while running jobs one can use the `screen` command from the terminal to make multiple ongoing terimal _screens_ and keep check on simulations.
-
-
-
-
-
