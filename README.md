@@ -5,7 +5,7 @@ LF-DEM is a code written by Romain Mari and Ryohei Seto (Mari et al. 2024, https
 LF-DEM simulates dense, overdamped, neutrally boyant suspensions with spherical, bidisperse particles under simple shear. Information on rheological and particle interation can be obtained from the LF-DEM code.<br>
 Here I mention the LF-DEM installation and bebugging steps for _personal linux, personal mac, linux cluster systems_ and _AWS EC2 instances_.
 
-Compiling LF DEM
+### Compiling LF DEM
 
 **Note:** The LF-DEM open-source code is available at the author's [Bitbucket repository](https://bitbucket.org/rmari/lf_dem.git). Access may require a request.  
 
