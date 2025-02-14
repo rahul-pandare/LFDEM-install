@@ -7,6 +7,8 @@ Here I mention the LF-DEM installation and bebugging steps for _personal linux, 
 
 Compiling LF DEM
 
+NOTE: The LF-DEM open source code is available at the author's [bitbucket] (https://bitbucket.org/rmari/lf_dem.git). You might need to request for access. Or I **RECOMMEND** pulling it from the current repository, since it has some custom maodification suitable for various operating systems and one algorithm change - the event handler identifies the shear jamming event if the shear rate drops below a threshhold (earlier it was the absolute shear rate)
+
 ## A. Personal Linux Machine
 
 1. Download the open source LF-DEM code from [lfdem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lfdem.zip) or use the following command in terminal:
