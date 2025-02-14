@@ -1,0 +1,2 @@
+PYTHON_SITE_PACKAGES = $(python -c "import site;print(site.USER_SITE)")
+SWIG = $(shell which swig3.0)

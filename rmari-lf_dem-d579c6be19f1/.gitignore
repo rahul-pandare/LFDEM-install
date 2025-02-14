@@ -1,0 +1,21 @@
+.DS_Store
+*~
+
+wiki/
+
+# Xcode
+xcuserdata
+*.xcuserstate
+**/*.xcodeproj/*
+!**/*.xcodeproj/project.pbxproj
+!*.xcodeproj/default.*
+!**/*.xcodeproj/default.*
+*.xcworkspace/*
+!*.xcworkspace/contents.xcworkspacedata
+
+
+Makefile_config.mk
+__pycache__
+build/
+.vscode/
+
