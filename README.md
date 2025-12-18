@@ -1,4 +1,13 @@
 # LFDEM-install
+<p align="center">
+  <strong>Simulation Movie</strong><br/><br/>
+  <img src="lfdem/Stress_1r_phi_0.56.gif"
+       alt="Visualization of particle flow in a 3D dense bidisperse suspension"
+       width="600"/><br/><br/>
+  <em>Visualization of particle flow in a 3D dense bidisperse suspension.</em>
+</p>
+
+
 > ### Instructions to compile the Lubricated flow discrete element method (LF-DEM) code.
 
 LF-DEM is a code written by Romain Mari and Ryohei Seto (Mari et al. 2024, https://doi.org/10.1122/1.4890747). <br>
