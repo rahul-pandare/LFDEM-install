@@ -1,7 +1,7 @@
 # LFDEM-install
 <p align="center">
   <strong>Simulation Movie</strong><br/><br/>
-  <img src="lfdem/Stress_1r_phi_0.56.gif"
+  <img src="lf_dem/Stress_1r_phi_0.56.gif"
        alt="Visualization of particle flow in a 3D dense bidisperse suspension"
        width="600"/><br/><br/>
   <em>Visualization of particle flow in a 3D dense bidisperse suspension.</em>
