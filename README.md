@@ -1,12 +1,12 @@
 # LFDEM-install
 <p align="center">
-  <strong>Simulation Movie</strong><br/><br/>
+  <strong>Simulation Movie</strong><br/>
   <img src="lf_dem/Stress_1r_phi_0.56.gif"
        alt="Visualization of particle flow in a 3D dense bidisperse suspension"
-       width="600"/><br/><br/>
+       width="400"/><br/>
   <em>Visualization of particle flow in a 3D dense bidisperse suspension.</em>
 </p>
-
+<br/>
 
 > ### Instructions to compile the Lubricated flow discrete element method (LF-DEM) code.
 
