@@ -26,7 +26,7 @@ However, it is **recommended** to pull from the current repository, which includ
 
 ## A. Personal Linux Machine
 
-1. Download the LF-DEM code (`lf_dem` directory), by either retrieving the archive [lfdem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lfdem.zip) or cloning the repository:  
+1. Download the LF-DEM code (`lf_dem` directory), by either retrieving the archive [lfdem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lf_dem.zip) or cloning the repository:  
     ```bash
     $ git clone https://github.com/rahul-pandare/LFDEM-install.git
     ```
@@ -108,7 +108,7 @@ For personal linux machines you can do:
     ```
 For personal mac you need to download macFUSE: [https://osxfuse.github.io/](https://osxfuse.github.io/)
 
-2. Download the LF-DEM code (`lf_dem` directory) on your personal machine, by either retrieving the archive [lfdem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lfdem.zip) or cloning the repository:  
+2. Download the LF-DEM code (`lf_dem` directory) on your personal machine, by either retrieving the archive [lf_dem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lf_dem.zip) or cloning the repository:  
     ```bash
     $ git clone https://github.com/rahul-pandare/LFDEM-install.git
     ```
@@ -186,7 +186,7 @@ If case intel libraries are not present we look for `openblas` and `lapack`.
      ```
 
 ## C. Personal MacOS (M1 and M2) machine
-1. Download the LF-DEM code (`lf_dem` directory) on your personal machine, by either retrieving the archive [lfdem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lfdem.zip) or cloning the repository:  
+1. Download the LF-DEM code (`lf_dem` directory) on your personal machine, by either retrieving the archive [lf_dem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lf_dem.zip) or cloning the repository:  
     ```bash
     $ git clone https://github.com/rahul-pandare/LFDEM-install.git
     ```
@@ -233,7 +233,7 @@ If case intel libraries are not present we look for `openblas` and `lapack`.
 Installation on AWS VM is similar as on personal linux machine.
 1. Make sure the AWS EC2 architecture uses ubuntu as OS and uses 64-bit x86 and not ARM. LF_DEM code compiles only on the x86 architecture.
 
-2. LF-DEM installation is similar to that as on a personal linux machine. Download the open source LF-DEM code from [lfdem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lfdem.zip) or use the following command in terminal:
+2. LF-DEM installation is similar to that as on a personal linux machine. Download the open source LF-DEM code from [lf_dem.zip](https://github.com/rahul-pandare/LFDEM-install/blob/main/lf_dem.zip) or use the following command in terminal:
     ```bash
     $ git clone https://bitbucket.org/rmari/lf_dem.git
     ```
