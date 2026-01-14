@@ -12,17 +12,17 @@
 
 LF-DEM is a code written by Romain Mari and Ryohei Seto (Mari et al. 2024, https://doi.org/10.1122/1.4890747). <br>
 LF-DEM simulates dense, overdamped, neutrally boyant suspensions with spherical, bidisperse particles under simple shear. Information on rheological and particle interation can be obtained from the LF-DEM code.<br>
-Here I mention the LF-DEM installation and bebugging steps for _personal linux, personal mac, linux cluster systems_ and _AWS EC2 instances_.
+Here I mention the LF-DEM installation and bebugging steps for _personal linux, personal mac, linux cluster systems_ and _AWS EC2 instances_; please look at the instructions for the machine you wish to install it on.
+
+**NOTE**: Installation on Windows machine is theoretically possible but has not yet been fully documented. Contributors who have successfully installed this on Windows are encouraged to share their steps. Feel free to fork this repository, add or improve installation instructions, and submit a pull request.
 
 ### Compiling LF DEM
-
-**Note:** The LF-DEM open-source code is available at the author's [Bitbucket repository](https://bitbucket.org/rmari/lf_dem.git). Access may require a request.  
-
-However, it is **recommended** to pull from the current repository, which includes:  
+The LF-DEM open-source code is available at the author's [Bitbucket repository](https://bitbucket.org/rmari/lf_dem.git). Access may require a request.  However, it is **recommended** to pull from the current repository, which includes:  
 - Custom modifications for compatibility across multiple operating systems.  
 - A key algorithmic update:  
   - The event handler now identifies shear jamming events based on a **relative** shear rate threshold instead of an **absolute** shear rate threshold.  
 
+The instructions for **running LF-DEM** simulations are mentioned at the end of this article.
 
 ## A. Personal Linux Machine
 
@@ -271,3 +271,38 @@ Installation on AWS VM is similar as on personal linux machine.
     - While using AWS - I used c7g, c7i, c5a, z1d. I found **c7i** to be the most efficient for the LF-DEM code.
     - To elaborate, c7g are the ARM gravitron chips. LF-DEM runs into error while compiling. c5a are the legacy older generation chips which are very slow. z1d are  fast but very expensive and the higher speed does not justify the cost hence not optimal.
     - After LF-DEM installation, while running jobs one can use the `screen` command from the terminal to make multiple ongoing terimal _screens_ and keep check on simulations.
+
+### Running LF-DEM
+
+1. After installing LF-DEM, you can verify that the installation was successful by running:
+
+   ```bash
+   ~/opt/LF_DEM -g RandomSeed
+   ```
+
+   Replace `~/opt/LF_DEM` with the path to the LF-DEM executable on your system.
+   This command will prompt you for simulation parameters and generate a random-seed initial condition file.
+
+2. The generated initial configuration file follows the naming pattern `D_*.dat` (for example, `D2N10VF0.5Bidi1.4_0.5Square_1_.dat`).
+   By convention, this file is typically renamed to:
+
+   ```bash
+   randomSeed.dat
+   ```
+
+3. To run stress-controlled or rate-controlled simulations, a `params.txt` file is required. This file specifies parameters such as shear conditions, contact model, sampling frequency, jamming point identification, and target strain.
+A sample `params.txt` file is provided in this repository.
+
+4. To perform a **stress-controlled** simulation, run:
+
+   ```bash
+   ~/opt/LF_DEM -s 100r randomSeed.dat params.txt
+   ```
+
+   Here, `100r` denotes the imposed stress, meaning the applied stress is 100 times the repulsive contact stress.
+
+5. To perform a **rate-controlled** simulation, replace the `-s` flag with `-r`:
+
+   ```bash
+   ~/opt/LF_DEM -r <rate> randomSeed.dat params.txt
+   ```

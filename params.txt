@@ -1,0 +1,23 @@
+disp_max = 5e-4;
+
+integration_method = 0;
+
+event_handler = shear_jamming;
+sj_shear_rate = 1e-7;
+sj_velocity = 1;
+sj_disp_max_goal = 5e-4;
+sj_check_count = 1;
+
+contact.friction_model = 4;
+contact.kn = 18849.5559s;
+contact.kt = 1kn;
+contact.relaxation_time = -1kn;
+contact.relaxation_time_tan = -1kn;
+
+lub.model = tangential;
+lub.regularization_length = 1e-2;
+
+output.time_interval_output_config = 1e-2h;
+output.time_interval_output_data = 1e-2h;
+
+time_end = 5h;
